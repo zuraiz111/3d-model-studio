@@ -224,3 +224,25 @@ function animate() {
 }
 
 animate();
+
+// ==================== Mobile Navigation ====================
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+}
+
+// Close menu when clicking nav links
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (hamburger) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
+});
